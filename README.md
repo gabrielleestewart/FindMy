@@ -21,7 +21,7 @@
 
 <br />
 <p align="center">
-This project represents the culmination of my journey at the iOS Academy of App Team Carolina. I undertook the challenge of recreating the functionality of Apple's FindMy app using SwiftUI, a modern framework known for its elegance and simplicity.
+This project represents the culmination of my journey at the iOS Academy of App Team Carolina. I undertook the challenge of recreating the functionality of Apple's FindMy app using SwiftUI.
 
 <br />
 <br />

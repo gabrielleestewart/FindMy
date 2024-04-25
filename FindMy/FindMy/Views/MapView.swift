@@ -9,7 +9,8 @@ import MapKit
 
 struct MapView: View {
     @ObservedObject var peopleDataService = PeopleDataService.shared
-    @State private var selectedPerson: Person? = nil // Track selected person
+    @State private var selectedPerson: Person? = nil
+    @State private var annotations: [UUID: MKAnnotation] = [:]
     
     var body: some View {
         ZStack {
@@ -37,12 +38,28 @@ struct MapView: View {
                     .annotationSubtitles(.hidden)
                 }
             }
-            .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
         }
         .sheet(item: $selectedPerson) { person in
             PersonDetailView(person: person)
         }
+        .onChange(of: peopleDataService.people) { _ in
+            updateAnnotations()
+        }
+        .onAppear {
+            updateAnnotations()
+        }
     }
+    
+    private func updateAnnotations() {
+            annotations = [:]
+            for person in peopleDataService.people {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = person.location
+                annotation.subtitle = person.id.uuidString
+                annotations[person.id] = annotation
+            }
+        }
     
     // Move the position function outside the body property
     func position(for coordinate: CLLocationCoordinate2D, in size: CGSize) -> CGPoint {

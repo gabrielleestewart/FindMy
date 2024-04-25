@@ -73,30 +73,26 @@ struct PersonDetailView: View {
                             .bold()
                     }
                     
-                    Menu {
-                        Button(action: {
-                            self.isNotificationViewActive = true // This will open the notification settings for "Notify Me"
-                        }) {
-                            Label("Notify Me", systemImage: "bell.fill")
-                        }
-                        .sheet(isPresented: $isNotificationViewActive) {
-                            NotificationSettingsView(person: selectedPerson, viewModel: NotificationViewModel(notificationSettings: selectedPerson.notificationSettings))
-                        }
-                        
-                        Button(action: {
-                            self.isNotificationViewActive = true // This will open the notification settings for "Notify \(person.name)"
-                        }) {
-                            Label("Notify \(person.name)", systemImage: "bell.fill")
-                        }
-                        .sheet(isPresented: $isNotificationViewActive) {
-                            NotificationSettingsView(person: selectedPerson, viewModel: NotificationViewModel(notificationSettings: selectedPerson.notificationSettings))
-                        }
-                    } label: {
-                    Text("Add")
-                        .foregroundColor(.blue)
+                    Button(action: {
+                        self.isNotifyMeActive = true
+                    }) {
+                        Text("Notify Me")
+                            .foregroundColor(.blue)
+                    }
+                    .sheet(isPresented: $isNotifyMeActive) {
+                        NotificationSettingsView(person: person, viewModel: NotificationViewModel(notificationSettings: person.notificationSettings))
+                    }
+                    
+                    Button(action: {
+                        self.isNotifyPersonActive = true
+                    }) {
+                        Text("Notify \(person.name)")
+                            .foregroundColor(.blue)
+                    }
+                    .sheet(isPresented: $isNotifyPersonActive) {
+                        NotificationSettingsView(person: person, viewModel: NotificationViewModel(notificationSettings: person.notificationSettings))
                     }
                 }
-                
                 
                 Section {
                     if fav == false {

@@ -36,7 +36,6 @@ fileprivate struct SheetRootViewFinder: UIViewRepresentable {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if let rootView = uiView.viewBeforeWindow, let window = rootView.window {
                 let safeArea = window.safeAreaInsets
-                // updates height to create bottom space
                 rootView.frame = .init(
                     origin: .zero,
                     size: .init(

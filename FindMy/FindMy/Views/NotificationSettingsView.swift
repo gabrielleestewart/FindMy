@@ -73,9 +73,9 @@ struct NotificationSettingsView: View {
             .listStyle(GroupedListStyle())
             .navigationBarItems(leading: HStack {
                 cancelButton
-                Text("Notify") //this should change depending on what was selected in the persondetailview. if "Notify Me" was selected, then it should be that. If "Notify /(person.name)" was selected, then it should be that.
+                Text("Notifications") //this should change depending on what was selected in the persondetailview. if "Notify Me" was selected, then it should be that. If "Notify /(person.name)" was selected, then it should be that.
                     .font(.title3)
-                    .padding(.leading, 70)
+                    .padding(.leading, 50)
                     .bold()
             } , trailing: addButton)
             .sheet(isPresented: $isAddLocationViewPresented) {

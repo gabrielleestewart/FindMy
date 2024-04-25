@@ -14,7 +14,7 @@ class ItemsDataService: ObservableObject {
     static let shared = ItemsDataService()
     
     var items: [Item] = [
-        Item(id: UUID(), name: "Gabrielle's Keys", location: CLLocationCoordinate2D(latitude: 35.91054, longitude: -79.04712), profilePic: "key.pic")
+        Item(id: UUID(), name: "Gabrielle's Keys", location: CLLocationCoordinate2D(latitude: 35.91074, longitude: -79.05239), profilePic: "key.pic")
     ]
     
     func cityAndState(for item: Item, completion: @escaping (String) -> Void) {

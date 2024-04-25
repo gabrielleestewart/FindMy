@@ -41,7 +41,7 @@ struct DeviceDetailView: View {
                             Button(action: {
                                 sound = true
                             }) {
-                                Text("On")
+                                Text("Off")
                                     .font(.callout)
                                     .foregroundColor(.secondary)
                             }
@@ -49,7 +49,7 @@ struct DeviceDetailView: View {
                             Button(action: {
                                 sound = false
                             }) {
-                                Text("Off")
+                                Text("On")
                                     .font(.callout)
                                     .foregroundColor(.secondary)
                             }

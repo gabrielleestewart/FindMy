@@ -14,11 +14,11 @@ class PeopleDataService: ObservableObject {
     static let shared = PeopleDataService()
     
     var people: [Person] = [
-        Person(id: UUID(), name: "Melanie Andrade-Muñoz", location: CLLocationCoordinate2D(latitude: 35.91054, longitude: -79.04712), profilePic: "mel.pic", notificationSettings: []),
-        Person(id: UUID(), name: "Rodrigo Roque-Hernandez", location: CLLocationCoordinate2D(latitude: 35.91054, longitude: -79.04712), profilePic: "rodrigo.pic", notificationSettings: []),
-        Person(id: UUID(), name: "Savv Lin", location: CLLocationCoordinate2D(latitude: 35.91054, longitude: -79.04712), profilePic: "savv.pic", notificationSettings: []),
-        Person(id: UUID(), name: "Kennedy Cameron", location: CLLocationCoordinate2D(latitude: 35.91248, longitude: -79.04491), profilePic: "ken.pic", notificationSettings: []),
-        Person(id: UUID(), name: "Vy Bui", location: CLLocationCoordinate2D(latitude: 35.91259, longitude: -79.04646), profilePic: "vy.pic", notificationSettings: [])
+        Person(id: UUID(), name: "Melanie Andrade-Muñoz", location: CLLocationCoordinate2D(latitude: 35.91074, longitude: -79.05239), profilePic: "mel.pic", notificationSettings: []),
+        Person(id: UUID(), name: "Savv Lin", location: CLLocationCoordinate2D(latitude: 35.91074, longitude: -79.05239), profilePic: "savv.pic", notificationSettings: []),
+        Person(id: UUID(), name: "Rodrigo Roque-Hernandez", location: CLLocationCoordinate2D(latitude: 35.91259, longitude: -79.04646), profilePic: "rodrigo.pic", notificationSettings: []),
+        Person(id: UUID(), name: "Vy Bui", location: CLLocationCoordinate2D(latitude: 35.91259, longitude: -79.04646), profilePic: "vy.pic", notificationSettings: []),
+        Person(id: UUID(), name: "Kennedy Cameron", location: CLLocationCoordinate2D(latitude: 35.91248, longitude: -79.04491), profilePic: "ken.pic", notificationSettings: [])
     ]
     
     func cityAndState(for person: Person, completion: @escaping (String) -> Void) {
@@ -60,6 +60,7 @@ class PeopleDataService: ObservableObject {
     func removePerson(_ person: Person) {
         if let index = people.firstIndex(where: { $0.id == person.id }) {
             people.remove(at: index)
+            objectWillChange.send()
         }
     }
 }

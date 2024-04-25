@@ -14,8 +14,8 @@ class DevicesDataService: ObservableObject {
     static let shared = DevicesDataService()
     
     var devices: [Device] = [
-        Device(id: UUID(), name: "Gabrielle's iPhone", location: CLLocationCoordinate2D(latitude: 35.91054, longitude: -79.04712), profilePic: "iphone.pic"),
-        Device(id: UUID(), name: "Gabrielle's Apple Watch", location: CLLocationCoordinate2D(latitude: 35.91054, longitude: -79.04712), profilePic: "watch.pic"),
+        Device(id: UUID(), name: "Gabrielle's iPhone", location: CLLocationCoordinate2D(latitude: 35.91074, longitude: -79.05239), profilePic: "iphone.pic"),
+        Device(id: UUID(), name: "Gabrielle's Apple Watch", location: CLLocationCoordinate2D(latitude: 35.91074, longitude: -79.05239), profilePic: "watch.pic"),
         Device(id: UUID(), name: "Gabrielle's iPad", location: CLLocationCoordinate2D(latitude: 35.91248, longitude: -79.04491), profilePic: "ipad.pic")
     ]
     

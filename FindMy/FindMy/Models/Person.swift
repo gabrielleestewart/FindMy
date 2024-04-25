@@ -9,14 +9,17 @@ import Foundation
 import MapKit
 import SwiftUI
 
-struct Person: Identifiable {
+struct Person: Identifiable, Equatable {
     let id: UUID
     let name: String
     let location: CLLocationCoordinate2D
     let profilePic: String
-    var notificationSettings: [Notification]
-}
+    var notificationSettings: [Notification] = []
 
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
 class PersonWrapper: ObservableObject {
     @Published var person: Person
     
